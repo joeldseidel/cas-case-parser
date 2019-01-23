@@ -14,7 +14,7 @@ namespace cas_case_parser
 
         public Claim(string[] claimComponents)
         {
-            this.typeId = Convert.ToInt32(claimComponents[0]);
+            this.typeId = claimComponents[0].Equals("Sturdy Premium") ? 1 : 2;
             this.hasCase = claimComponents[1].Equals("Yes") ? true : false;
             this.yearsOld = DateTime.Now.Year - Convert.ToInt32(claimComponents[2]);
             this.userAge = Convert.ToInt32(claimComponents[3]);
@@ -38,6 +38,31 @@ namespace cas_case_parser
                 default:
                     return 99;
             }
+        }
+
+        public int getTypeId()
+        {
+            return typeId;
+        }
+        public int getYearsOld()
+        {
+            return yearsOld;
+        }
+        public int getUserAge()
+        {
+            return userAge;
+        }
+        public int getRiskId()
+        {
+            return riskId;
+        }
+        public decimal getClaimValue()
+        {
+            return claimValue;
+        }
+        public bool getHasCase()
+        {
+            return hasCase;
         }
     }
 }
