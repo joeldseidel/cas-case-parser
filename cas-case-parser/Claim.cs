@@ -32,11 +32,15 @@ namespace cas_case_parser
             switch (claimName)
             {
                 case "Screen":
-                    return 200;
+                    return 120;
                 case "Battery":
-                    return 150;
+                    return 70;
+                case "Loss":
+                    return this.typeId == 1 ? 220 : 70;
+                case "Water":
+                    return this.typeId == 1 ? 620 : 320;
                 default:
-                    return 99;
+                    return 21;
             }
         }
 

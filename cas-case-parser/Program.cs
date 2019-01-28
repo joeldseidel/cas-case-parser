@@ -14,6 +14,8 @@ namespace cas_case_parser
             Console.ReadKey();
             Queue claimsQueue = readFile();
             createDatabaseRecords(claimsQueue);
+            Console.WriteLine("Completed");
+            Console.ReadKey();
         }
 
         /// <summary>
@@ -45,7 +47,10 @@ namespace cas_case_parser
         {
             MySqlConnectionStringBuilder connStringBuilder = new MySqlConnectionStringBuilder
             {
-                //Removed db connection
+                Server = "staging-mavtest.mavericksystems.us",
+                UserID = "mavadmin",
+                Password = "spa_He4o!_tr1!rE!Rok",
+                Database = "cas"
             };
             //Open database connection
             using (MySqlConnection dbConn = new MySqlConnection(connStringBuilder.ToString()))
